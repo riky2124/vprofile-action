@@ -1,5 +1,4 @@
-FROM openjdk:21-ea-11-jdk-slim-buster AS BUILD_IMAGE
-RUN apt update && apt install maven -y
+FROM maven:3.8.6-openjdk-11-slim AS BUILD_IMAGE
 COPY ./ vprofile-project
 RUN cd vprofile-project &&  mvn install 
 
