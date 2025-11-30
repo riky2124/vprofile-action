@@ -1,5 +1,5 @@
 FROM maven:3.9.9-eclipse-temurin-21-jammy AS BUILD_IMAGE
-RUN git clone -b containers https://github.com/riky2124/vprofile-project.git
+COPY ./ vprofile-project
 RUN cd vprofile-project &&  mvn install 
 
 FROM tomcat:10-jdk21
