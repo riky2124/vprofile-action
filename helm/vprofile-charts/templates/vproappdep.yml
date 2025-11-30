@@ -20,6 +20,17 @@ spec:
         ports:
         - name: vproapp-port
           containerPort: 8080
+        env:
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: app-secret
+                key: db-pass
+          - name: RMQ_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: app-secret
+                key: rmq-pass
       initContainers:
       - name: init-mydb
         image: busybox
